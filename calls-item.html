@@ -35,7 +35,9 @@
           <tr><td>Answered <date-display value="[[answered]]" format="LTS"></date-display></td><td> Duration <date-display value="[[duration]]" format="LTS"></date-display></td></tr>
           <tr><td>Ended <date-display value="[[ended]]" format="LTS"></date-display></td><td></td></tr>
         </table>
-        <paper-audio-player src="[[audioFile]]" title="[[audioTitle]]"></paper-audio-player>
+        <template is="dom-if" if="[[audioFile]]">
+          <paper-audio-player src="[[audioFile]]" title="[[audioTitle]]"></paper-audio-player>
+        </template>
       </iron-collapse>
     </paper-material>
   </template>
