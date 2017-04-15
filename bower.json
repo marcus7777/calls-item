@@ -9,7 +9,6 @@
   ],
   "dependencies": {
     "polymer": "*",
-    "icon-icons": "*",
     "paper-item": "polymerelements/paper-item#~1.0.7",
     "date-display": "*",
     "paper-audio-player": "gorork/paper-audio-player#~1.1.1",
