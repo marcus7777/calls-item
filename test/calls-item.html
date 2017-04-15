@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+  <head>
+    <title>calls-item</title>
+    <script src="../../webcomponentsjs/webcomponents.js"></script>
+    <script src="../../web-component-tester/browser.js"></script>
+    <script src="../../test-fixture/test-fixture-mocha.js"></script>
+    <script src="../../iron-test-helpers/mock-interactions.js"></script>
+    <link rel="import" href="../../polymer/polymer.html">
+    <link rel="import" href="../../test-fixture/test-fixture.html">
+    <link rel="import" href="../calls-item.html">
+  </head>
+  <body>
+    <test-fixture id="callsItem">
+      <template>
+        <calls-item></calls-item> //TODO add attributes
+      </template>
+    </test-fixture>
+    <script>
+      suite('<calls-item>', function () {
+        var callsItem;
+        setup(function () {
+          callsItem = fixture('callsItem');
+        });
+        teardown(function () {
+          //...
+        });
+        suite("This test is just to show that tests are running", function () {
+          test("test is running", function(done) {
+            done()
+          })
+        })
+        suite('These test allow you to interact with the element', function () {
+          test('can be triggered with space', function(done) {
+            callsItem.addEventListener('keydown', function() {
+              done()
+            })
+            MockInteractions.pressSpace(callsItem)
+          })
+          test('can be clicked', function(done) {
+            callsItem.addEventListener('click', function() {
+              done()
+            })
+            MockInteractions.tap(callsItem)
+          })
+        })
+      })
+    </script>
+  </body>
+</html>
