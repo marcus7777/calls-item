@@ -1,0 +1,26 @@
+<!doctype html>
+<meta charset='utf-8'>
+<html>
+  <head>
+    <title>calls-item demo</title>
+    <script src="../webcomponentsjs/webcomponents-lite.js"></script>
+    <link rel="import" href="calls-item.html">
+  </head>
+  <body>
+    <calls-item audio-file="http://techslides.com/demos/samples/sample.mp3" audio-title="" queuing="PT4M44.18299999999999S" received="2017-04-14T17:02:56+01:00" answered="2017-04-14T16:21:30+01:00"></calls-item>
+  </body>
+  <script src="https://www.gstatic.com/firebasejs/3.7.6/firebase.js"></script>
+  <script src="https://storage.cloud.google.com/firebase-preview-drop/web/firestore/0.4.1/firestore.js"></script>
+  <script>
+    var config = {
+      apiKey: "AIzaSyAMjUXgjtk-xXpCKQmAoCjZtlJMy6a9Uy0",
+      authDomain: "dolphin-one-fstest2.firebaseapp.com",
+      firestoreId: "dolphin-one-fstest2",
+      databaseURL: "https://dolphin-one-fstest2.firebaseio.com",
+      projectId: "dolphin-one-fstest2",
+      storageBucket: "dolphin-one-fstest2.appspot.com",
+      messagingSenderId: "922115260471",
+    }
+    firebase.initializeApp(config)
+  </script>
+</html>
