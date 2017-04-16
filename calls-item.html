@@ -24,9 +24,12 @@
       <paper-item on-tap="toggle" elevation="1">
         <paper-item-body two-line>
           <span><strong>from:</strong> [[from]] <strong>to:</strong> [[to]] <strong>ans:</strong> [[ans]] </span>
-          <div secondary>transferred to: [[transferredTo]]</div>
+          <template is="dom-if" if="[[transferredTo]]">
+            <div secondary>transferred to: [[transferredTo]]</div>
+          </template>
         </paper-item-body>
         <date-display value="[[received]]" format="DD MMM"></date-display>
+        <date-display value="[[received]]" format="HH:mm"></date-display>
       </paper-item>
       <iron-collapse id="collapse">
         <table style="width:100%">
