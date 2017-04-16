@@ -31,7 +31,9 @@
       <iron-collapse id="collapse">
         <table style="width:100%">
           <tr><td>Received <date-display value="[[received]]" format="LTS"></date-display></td><td>Queuing <date-display value="[[queuing]]" format="LTS"></date-display></tr>
-          <tr><td>Answered <date-display value="[[answered]]" format="LTS"></date-display></td><td> Duration <date-display value="[[duration]]" format="LTS"></date-display></td></tr>
+          <template is="dom-if" if="[[answered]]">
+            <tr><td>Answered <date-display value="[[answered]]" format="LTS"></date-display></td><td> Duration <date-display value="[[duration]]" format="LTS"></date-display></td></tr>
+          </template>
           <tr><td>Ended <date-display value="[[ended]]" format="LTS"></date-display></td><td></td></tr>
         </table>
         <template is="dom-if" if="[[audioFile]]">
