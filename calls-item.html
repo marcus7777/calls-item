@@ -10,6 +10,7 @@
   `<calls-item></calls-item>` demo
   @demo demo.html
 -->
+<link rel="import" href="leg-item.html">
 <dom-module id="calls-item">
   <template>
     <style>
@@ -21,14 +22,16 @@
         display:block;
         background:#fff;
       };
+      .iron-selected leg-item number {
+        background: green;color:#fff;
+      };
     </style>
-
     <paper-material elevation="1">
       <paper-item on-tap="toggle" elevation="1">
         <paper-item-body two-line>
-          <span><strong>from:</strong> [[from]] <strong>to:</strong> [[to]] <strong>ans:</strong> [[ans]] </span>
-          <template is="dom-if" if="[[transferredTo]]">
-            <div secondary>transferred to: [[transferredTo]]</div>
+          <span><strong>from:</strong> [[from]] <strong>to:</strong> [[to]] </span>
+          <template is="dom-if" if="[[description]]">
+            <div secondary>[[description]]</div>
           </template>
         </paper-item-body>
         <div>
@@ -37,15 +40,15 @@
         </div>
       </paper-item>
       <iron-collapse id="collapse">
-        <table style="width:100%">
-          <tr><td>Received <date-display value="[[received]]" format="LTS"></date-display></td><td>Queuing <date-display value="[[queuing]]" format="LTS"></date-display></tr>
-          <template is="dom-if" if="[[answered]]">
-            <tr><td>Answered <date-display value="[[answered]]" format="LTS"></date-display></td><td> Duration <date-display value="[[duration]]" format="LTS"></date-display></td></tr>
+        <iron-selector>
+          <template is="dom-repeat" items="[[items]]">
+            <leg-item index="[[index]]" to="[[item.to]]" ></leg-item>
           </template>
-          <tr><td>Ended <date-display value="[[ended]]" format="LTS"></date-display></td><td></td></tr>
-        </table>
-        <template is="dom-if" if="[[audioFile]]">
-          <paper-audio-player src="[[audioFile]]" title="[[audioTitle]]"></paper-audio-player>
+        </iron-selector>
+        <template is="dom-if" if="[[audio]]">
+          
+          <paper-audio-player src="[[audio.file]]" title="[[audio.title]]"></paper-audio-player>
+          
         </template>
       </iron-collapse>
     </paper-material>
