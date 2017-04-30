@@ -1,0 +1,36 @@
+<link rel="import" href="../paper-item/paper-item-body.html">
+<link rel="import" href="../date-display/date-display.html">
+<link rel="import" href="../vellum-chip/vellum-chip.html">
+<link rel="import" href="../paper-item/paper-item.html">
+<link rel="import" href="../icon-icons/iron-icons.html">
+<link rel="import" href="../polymer/polymer.html">
+<!--
+  `<leg-item></leg-item>` demo
+  @demo demo.html
+-->
+<dom-module id="leg-item">
+  <template>
+    <style>
+      :host {
+        display:block;
+        font-family: 'Roboto', 'Noto', sans-serif;
+        -webkit-font-smoothing: antialiased;
+      };
+      number {
+        display:inline-block;
+        padding:10px;
+      }
+      .iron-selected number {
+        display:inline-block;
+        padding:10px;
+        background: green;
+      }
+    </style>
+    <number>[[index]]</number> <span><strong>from:</strong> [[from]] <strong>to:</strong> [[to]] <strong>ans:</strong> [[ans]] </span>
+  </template>
+</dom-module>
+<script>
+  Polymer({
+    is: "leg-item",
+  })
+</script>
