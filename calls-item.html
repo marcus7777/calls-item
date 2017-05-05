@@ -25,8 +25,9 @@
       .iron-selected leg-item number {
         background: green;color:#fff;
       };
+      
     </style>
-    <paper-material elevation="1">
+    <paper-material elevation="[[elevation]]">
       <paper-item on-tap="toggle" elevation="1">
         <paper-item-body two-line>
           <span><strong>from:</strong> [[from]] <strong>to:</strong> [[to]] </span>
@@ -57,13 +58,16 @@
 <script>
   Polymer({
     is: "calls-item",
-    properties:{
-      items:{
+    properties: {
+      items: {
         type:Array,
         value:[],
       },
+      elevation: {
+        value:"1"
+      },
     },
-    toggle: function(undefined){
+    toggle: function(){
       this.$$("iron-collapse").toggle()
     },
   })
