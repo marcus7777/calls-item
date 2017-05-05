@@ -70,5 +70,11 @@
     toggle: function(){
       this.$$("iron-collapse").toggle()
     },
+    close: function(){
+      this.$$("iron-collapse").hide()
+    },
+    open: function(){
+      this.$$("iron-collapse").show()
+    },
   })
 </script>
