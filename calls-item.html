@@ -42,8 +42,8 @@
       </paper-item>
       <iron-collapse id="collapse">
         <iron-selector>
-          <template is="dom-repeat" items="[[items]]">
-            <leg-item index="[[index]]" to="[[item.to]]" ></leg-item>
+          <template is="dom-repeat" items="[[legs]]">
+            <leg-item index="[[index]]" to="[[item.to]]" ans="[[item.ans]]" audio="{{audio}}"></leg-item>
           </template>
         </iron-selector>
         <template is="dom-if" if="[[audio]]">
@@ -65,6 +65,9 @@
       },
       elevation: {
         value:"1"
+      },
+      legs: {
+        value: [0,0,0]
       },
     },
     toggle: function(){
