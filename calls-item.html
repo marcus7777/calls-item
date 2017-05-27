@@ -24,7 +24,6 @@
       };
       .iron-selected leg-item number {
       };
-      
     </style>
     <paper-material elevation="[[elevation]]">
       <paper-item on-tap="toggle" elevation="1">
@@ -46,9 +45,7 @@
           </template>
         </iron-selector>
         <template is="dom-if" if="[[audio]]">
-          
           <paper-audio-player src="[[audio.file]]" title="[[audio.title]]"></paper-audio-player>
-          
         </template>
       </iron-collapse>
     </paper-material>
