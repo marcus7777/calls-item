@@ -39,7 +39,7 @@
       <iron-collapse id="collapse">
         <iron-selector>
           <template is="dom-repeat" items="[[legs]]">
-            <leg-item index="[[index]]" to="[[item.to]]" ans="[[item.ans]]" audio="{{audio}}"></leg-item>
+            <leg-item index="[[index]]" to="[[item.to]]" ans="[[item.ans]]"  on-tap="setAudio" audio="[[item.audio]]"></leg-item>
           </template>
         </iron-selector>
         <template is="dom-if" if="[[audio]]">
