@@ -21,7 +21,10 @@
         line-height: 20px;
         display:block;
         background:#fff;
-      };
+      }
+      :host div.footer {
+        min-height:50px
+      }
     </style>
     <paper-material elevation="[[elevation]]">
       <paper-item on-tap="toggle" elevation="1">
@@ -42,9 +45,11 @@
             <leg-item index="[[index]]" to="[[item.to]]" ans="[[item.ans]]"  on-tap="setAudio" audio="[[item.audio]]"></leg-item>
           </template>
         </iron-selector>
-        <template is="dom-if" if="[[audio]]">
-          <paper-audio-player src="[[audio.file]]" title="[[audio.title]]"></paper-audio-player>
-        </template>
+        <div class="footer">
+          <template is="dom-if" if="[[audio]]">
+            <paper-audio-player src="[[audio.file]]" title="[[audio.title]]"></paper-audio-player>
+          </template>
+        </div>
       </iron-collapse>
     </paper-material>
   </template>
