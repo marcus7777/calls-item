@@ -46,7 +46,9 @@
           </template>
         </iron-selector>
         <div class="footer">
-          1234567 testing
+          <template is="dom-repeat" items="[[legs]]">
+            <date-display value="[[item.receivedLocal]]" format="HH:mm"></date-display>
+          </template>
           <template is="dom-if" if="[[audio]]">
             <paper-audio-player src="[[audio.file]]" title="[[audio.title]]"></paper-audio-player>
           </template>
