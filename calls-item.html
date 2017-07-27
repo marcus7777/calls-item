@@ -41,12 +41,12 @@
       </paper-item>
       <iron-collapse id="collapse">
         <iron-selector>
-          <template is="dom-repeat" items="[[_legs]]">
+          <template is="dom-repeat" items="[[legs]]">
             <leg-item index="[[index]]" to="[[item.to]]" ans="[[item.ans]]" on-tap="setAudio" audio="[[item.audio]]"></leg-item>
           </template>
         </iron-selector>
         <div class="footer">
-          <template is="dom-repeat" items="[[_legs]]">
+          <template is="dom-repeat" items="[[legs]]">
             <date-display value="[[item.receivedLocal]]" format="HH:mm"></date-display>
           </template>
           <template is="dom-if" if="[[audio]]">
@@ -68,13 +68,6 @@
       elevation: {
         value:"1"
       },
-      legs: {
-        observer: 'makeLegs'
-      },
-    },
-    makeLegs: function(legs) {
-      console.log(legs)
-      this._legs = [1,2,3,4]
     },
     toggle: function(){
       this.$$("iron-collapse").toggle()
