@@ -28,6 +28,14 @@
     </style>
     <paper-material elevation="[[elevation]]">
       <paper-item elevation="1">
+        <div item-icon>
+          <template is="dom-if" if="[[!item.photoUrl]]">
+            <text-avatar name="[[displayName]]">[[displayName.0]]</text-avatar>
+          </template>
+          <template is="dom-if" if="[[item.photoUrl]]">
+            <img style="width:36px;margin:6px;border-radius:50%" src="[[item.photo]]" />
+          </template>
+        </div>
         <paper-item-body two-line>
           <span><strong>from:</strong> [[from]] <strong>to:</strong> [[to]] </span>
           <template is="dom-if" if="[[description]]">
