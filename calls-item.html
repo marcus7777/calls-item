@@ -1,6 +1,7 @@
 <link rel="import" href="../paper-audio-player/paper-audio-player.html">
 <link rel="import" href="../paper-material/paper-material.html">
 <link rel="import" href="../iron-collapse/iron-collapse.html">
+<link rel="import" href="../paper-item/paper-icon-item.html">
 <link rel="import" href="../paper-item/paper-item-body.html">
 <link rel="import" href="../date-display/date-display.html">
 <link rel="import" href="../paper-item/paper-item.html">
@@ -27,7 +28,7 @@
       }
     </style>
     <paper-material elevation="[[elevation]]">
-      <paper-item elevation="1">
+      <paper-icon-item elevation="1">
         <div item-icon>
           <template is="dom-if" if="[[!photo]]">
             <text-avatar name="[[displayName]]">[[displayName.0]]</text-avatar>
@@ -46,7 +47,7 @@
           <date-display value="[[received]]" format="DD MMM"></date-display><br/>
           <date-display secondary value="[[received]]" format="HH:mm"></date-display>
         </div>
-      </paper-item>
+      </paper-icon-item>
       <iron-collapse id="collapse">
         <iron-selector>
           <template is="dom-repeat" items="[[legs]]">
