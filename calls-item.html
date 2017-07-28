@@ -49,9 +49,9 @@
         </div>
       </paper-icon-item>
       <iron-collapse id="collapse">
-        <iron-selector attr-for-selected="id" selected="{{callSelected}}">
+        <iron-selector attr-for-selected="id" selected="{{legSelected}}">
           <template is="dom-repeat" items="[[legs]]">
-            <leg-item index="[[index]]" state="[[item.state]]" to="[[item.target.displayName]]" ans="[[item.source.displayName]]" on-tap="setAudio" audio="[[item.audio]]"></leg-item>
+            <leg-item id="[[item.id]]" key="[[item.__key]]" index="[[index]]" state="[[item.state]]" to="[[item.target.displayName]]" ans="[[item.target.displayName]]" on-tap="setAudio" audio="[[item.audio]]"></leg-item>
           </template>
         </iron-selector>
         <div class="footer">
@@ -91,8 +91,8 @@
       },
       callSelected: String,
     },
-    setElement: function(legs,legsRef){
-    
+    setElement: function(legs, legsRef){
+      
     },
     setOpened: function(id, callSelected){
       if (id == callSelected) {
