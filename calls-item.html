@@ -55,7 +55,7 @@
       <iron-collapse id="collapse">
         <iron-selector attr-for-selected="id" selected="{{legSelected}}">
           <template is="dom-repeat" items="[[legs]]">
-            <leg-item id="[[item.__key]]" index="[[index]]" state="[[item.state]]" to="[[item.target.displayName]]" ans="[[item.target.displayName]]" on-tap="setAudio" audio="[[item.audio]]"></leg-item>
+            <leg-item id="[[item.__key]]" index="[[index]]" state="[[item.state]]" from="[[item.source.displayName]]" to="[[item.target.displayName]]" on-tap="setAudio" audio="[[item.audio]]"></leg-item>
           </template>
         </iron-selector>
         <div class="footer">
