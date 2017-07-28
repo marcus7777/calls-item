@@ -49,13 +49,13 @@
         </div>
       </paper-icon-item>
       <iron-collapse id="collapse">
-        <iron-selector>
+        <iron-selector attr-for-selected="id" selected="{{callSelected}}">
           <template is="dom-repeat" items="[[legs]]">
             <leg-item index="[[index]]" state="[[item.state]]" to="[[item.target.displayName]]" ans="[[item.source.displayName]]" on-tap="setAudio" audio="[[item.audio]]"></leg-item>
           </template>
         </iron-selector>
         <div class="footer">
-          <template is="dom-repeat" items="[[legs]]">
+          <template is="dom-repeat" items="[[elements]]">
             <date-display value="[[item.receivedLocal]]" format="HH:mm"></date-display>
           </template>
           <template is="dom-if" if="[[audio]]">
@@ -77,10 +77,22 @@
       elevation: {
         value:"1"
       },
+      legs: {
+        type: Array,
+      },
+      element: {
+        type: Array,
+      },
+      _element:{
+        computed: "setElement(legs,legsRef)"
+      },
       opened: {
         computed: "setOpened(id, callSelected)"
       },
       callSelected: String,
+    },
+    setElement: function(legs,legsRef){
+    
     },
     setOpened: function(id, callSelected){
       if (id == callSelected) {
