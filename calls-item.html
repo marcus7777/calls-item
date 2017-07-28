@@ -27,7 +27,7 @@
       }
     </style>
     <paper-material elevation="[[elevation]]">
-      <paper-item on-tap="toggle" elevation="1">
+      <paper-item elevation="1">
         <paper-item-body two-line>
           <span><strong>from:</strong> [[from]] <strong>to:</strong> [[to]] </span>
           <template is="dom-if" if="[[description]]">
@@ -68,9 +68,17 @@
       elevation: {
         value:"1"
       },
+      opened: {
+        computed: "setOpened(id, callSelected)"
+      },
+      callSelected: String,
     },
-    toggle: function(){
-      this.$$("iron-collapse").toggle()
+    setOpened: function(id, callSelected){
+      if (id == callSelected) {
+        this.open()
+      } else {
+        this.close()
+      }
     },
     close: function(){
       this.$$("iron-collapse").hide()
