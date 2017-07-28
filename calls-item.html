@@ -51,11 +51,12 @@
       <iron-collapse id="collapse">
         <iron-selector attr-for-selected="id" selected="{{legSelected}}">
           <template is="dom-repeat" items="[[legs]]">
-            <leg-item id="[[item.id]]" key="[[item.__key]]" index="[[index]]" state="[[item.state]]" to="[[item.target.displayName]]" ans="[[item.target.displayName]]" on-tap="setAudio" audio="[[item.audio]]"></leg-item>
+            <leg-item id="[[item.__key]]" index="[[index]]" state="[[item.state]]" to="[[item.target.displayName]]" ans="[[item.target.displayName]]" on-tap="setAudio" audio="[[item.audio]]"></leg-item>
           </template>
         </iron-selector>
         <div class="footer">
           <template is="dom-repeat" items="[[elements]]">
+            [[elements.__key]]
             <date-display value="[[item.receivedLocal]]" format="HH:mm"></date-display>
           </template>
           <template is="dom-if" if="[[audio]]">
@@ -84,15 +85,36 @@
         type: Array,
       },
       _element:{
-        computed: "setElement(legs,legsRef)"
+        computed: "getElements(legs, legsRef, legSelected)"
       },
       opened: {
         computed: "setOpened(id, callSelected)"
       },
       callSelected: String,
     },
-    setElement: function(legs, legsRef){
+    setElements: function(legs, legsRef, legSelected){
+      var that = this
+      if (this.unsubscribeElements) {
+        this.unsubscribeElements()
+      }
+      this.legs = []
+      this.elementsRef = legsRef.doc(legSelected).collection("legs").where('receivedUTC', '>', 0)
       
+      this.unsubscribeElements = this.elementsRef.onSnapshot(function(doc) {
+        if (doc) {
+          var elements = []
+          for (var index in doc.docs) {
+            var data = doc.docs[index].data()
+            data.__key = doc.docs[index].id
+            elements.push(data)
+          }
+          that.elements = elements
+        } else {
+          console.log("No such collection!")
+        }
+      }, function(error) {
+        console.log(error)
+      })
     },
     setOpened: function(id, callSelected){
       if (id == callSelected) {
