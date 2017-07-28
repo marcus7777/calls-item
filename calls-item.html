@@ -101,7 +101,7 @@
       if (this.unsubscribeElements) {
         this.unsubscribeElements()
       }
-      this.legs = []
+      this.elements = []
       this.elementsRef = legsRef.doc(legSelected).collection("legs").where('receivedUTC', '>', 0)
       
       this.unsubscribeElements = this.elementsRef.onSnapshot(function(doc) {
