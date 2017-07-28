@@ -26,6 +26,10 @@
       div.footer {
         min-height:50px
       }
+      arrow {
+        color: #99c75f;
+        font-size: bigger;
+      }
     </style>
     <paper-material elevation="[[elevation]]">
       <paper-icon-item elevation="1">
@@ -38,7 +42,7 @@
           </template>
         </div>
         <paper-item-body two-line>
-          <span> [[from]] <strong>&rArr;</strong> [[to]] </span>
+          <span> [[from]] <strong class="arrow">&rArr;</strong> [[to]] </span>
           <template is="dom-if" if="[[description]]">
             <div secondary>[[description]]</div>
           </template>
