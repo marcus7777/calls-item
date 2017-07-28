@@ -25,11 +25,20 @@
         background: green;
       }
     </style>
-    <number>[[index]]</number> <span> <strong>&rarr;</strong> [[ans]] </span>
+    <number>[[number]]</number> <span> <strong>&rarr;</strong> [[ans]] </span>
   </template>
 </dom-module>
 <script>
   Polymer({
     is: "leg-item",
+    properties:{
+      number:{
+        type:Number,
+        computed:"addOne(i)",
+      },
+    },
+    addOne: function(i) {
+      return 1+i
+    },
   })
 </script>
