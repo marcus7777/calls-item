@@ -29,11 +29,11 @@
     <paper-material elevation="[[elevation]]">
       <paper-item elevation="1">
         <div item-icon>
-          <template is="dom-if" if="[[!item.photoUrl]]">
+          <template is="dom-if" if="[[!photo]]">
             <text-avatar name="[[displayName]]">[[displayName.0]]</text-avatar>
           </template>
-          <template is="dom-if" if="[[item.photoUrl]]">
-            <img style="width:36px;margin:6px;border-radius:50%" src="[[item.photo]]" />
+          <template is="dom-if" if="[[photo]]">
+            <img style="width:36px;margin:6px;border-radius:50%" src="[[photo]]" />
           </template>
         </div>
         <paper-item-body two-line>
