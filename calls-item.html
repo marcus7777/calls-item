@@ -89,14 +89,15 @@
         type: Array,
       },
       _element:{
-        computed: "getElements(legs, legsRef, legSelected)"
+        computed: "getElements(legSelected)"
       },
       opened: {
         computed: "setOpened(id, callSelected)"
       },
       callSelected: String,
     },
-    setElements: function(legs, legsRef, legSelected){
+    setElements: function(legSelected){
+      var legsRef = this.legsRef
       var that = this
       if (this.unsubscribeElements) {
         this.unsubscribeElements()
