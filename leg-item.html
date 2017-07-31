@@ -34,7 +34,13 @@
         font-size: bigger;
       }
     </style>
-    <number>[[number]]</number> <span> [[from]] <strong>&rArr;</strong> [[to]] </span>
+    <number>[[number]]</number> 
+    <span> [[from]] <strong>&rArr;</strong> [[to]] </span>
+    <template is="dom-if" if="[[recording]]">
+      <div style="position:absolute;right:32px;"> 
+        <iron-icon icon="av:play-arrow" style="color:green"></iron-icon>
+      </div>
+    </template>
   </template>
 </dom-module>
 <script>
