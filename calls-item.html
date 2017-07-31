@@ -46,14 +46,16 @@
           <template is="dom-if" if="[[description]]">
             <div secondary>[[description]]</div>      
           </template>
-          <div secondary>
-            <iron-icon icon="communication:call" style="color:green"></iron-icon>
-            <date-display value="[[receivedLocal]]" format="HH:mm"></date-display>
-            <iron-icon icon="communication:call-end" style="color:red"></iron-icon>
-            <date-display value="[[times.cleared]]" format="HH:mm"></date-display>
-            <iron-icon icon="device:access-time" style="color:dark-gray"></iron-icon>
-            [[times.duration]]
-          </div>
+          <template is="dom-if" if="[[times]]">
+            <div secondary>
+              <iron-icon icon="communication:call" style="color:green"></iron-icon>
+              <date-display value="[[times.received]]" format="HH:mm"></date-display>
+              <iron-icon icon="communication:call-end" style="color:red"></iron-icon>
+              <date-display value="[[times.cleared]]" format="HH:mm"></date-display>
+              <iron-icon icon="device:access-time" style="color:dark-gray"></iron-icon>
+              [[times.duration]]
+            </div>
+          </template>
         </paper-item-body>
         <div>
           <date-display value="[[received]]" format="DD MMM"></date-display><br/>
