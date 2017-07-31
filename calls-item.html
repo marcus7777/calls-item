@@ -57,10 +57,6 @@
             </div>
           </template>
         </paper-item-body>
-        <div>
-          <date-display value="[[received]]" format="DD MMM"></date-display><br/>
-          <date-display secondary value="[[received]]" format="HH:mm"></date-display>
-        </div>
       </paper-icon-item>
 
       <iron-collapse id="collapse">
@@ -105,8 +101,14 @@
       opened: {
         computed: "setOpened(id, callSelected)"
       },
-      times: Object,
+      times: {
+        type: Object,
+        observer: '_log', 
+      },
       callSelected: String,
+    },
+    _log: function(a,b,c) {
+      console.log(a,b,c)
     },
     getElements: function(legsRef,legSelected){
       var that = this
