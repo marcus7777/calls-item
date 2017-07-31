@@ -14,15 +14,20 @@
         display:block;
         font-family: 'Roboto', 'Noto', sans-serif;
         -webkit-font-smoothing: antialiased;
-      };
-      number {
-        display:inline-block;
-        padding:10px;
       }
-      .iron-selected number {
-        display:inline-block;
-        padding:10px;
+      number {
+        display: inline-block;
+        border: 1px solid green;
+        border-radius: 50%;
+        margin: 8px;
+        height: 23px;
+        line-height: 22px;
+        width: 22px;
+        text-align: center;
+      }
+      .iron-selected>number {
         background: green;
+        color: #fff;
       }
       strong {
         color: #99c75f;
