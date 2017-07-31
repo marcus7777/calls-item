@@ -57,6 +57,11 @@
               [[times.duration]]
             </div>
           </template>
+          <template is="dom-if" if="[[recording]]">
+            <div item-icon>
+              <iron-icon icon="av:play-arrow" style="color:green"></iron-icon>
+            </div>
+          </template>
         </paper-item-body>
       </paper-icon-item>
 
@@ -107,6 +112,7 @@
         observer: '_log', 
       },
       callSelected: String,
+      recording: Boolean,
     },
     _log: function(a,b,c) {
       console.log(a,b,c)
