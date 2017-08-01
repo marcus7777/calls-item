@@ -25,7 +25,7 @@
         width: 22px;
         text-align: center;
       }
-      :host.iron-selected number {
+      number.true {
         background: green;
         color: #fff;
       }
@@ -34,7 +34,8 @@
         font-size: bigger;
       }
     </style>
-    <number>[[number]]</number> 
+    
+    <number class="[[selected]]">[[number]]</number> 
     <span> [[from]] <strong>&rArr;</strong> [[to]] </span>
     <template is="dom-if" if="[[recording]]">
       <div style="position:absolute;right:32px;"> 
@@ -51,6 +52,18 @@
         type:Number,
         computed:"addOne(index)",
       },
+      id:String,
+      legSelected:String,
+      selected:{
+        conputed:"isSelected(id,legSelected)"
+      },
+    },
+    isSelected: function(id,legSelected){
+      if (id && legSelected) {
+        return id === legSelected
+      } else {
+        return false
+      }
     },
     addOne: function(i) {
       return 1+i
