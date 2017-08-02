@@ -39,11 +39,11 @@
     <span> [[from]] <strong>&rArr;</strong> [[to]] </span>
     
     <iron-icon icon="communication:call" style="color:green"></iron-icon>
-    <date-display value="[[times.received]]" format="HH:mm"></date-display>
+    <date-display value="[[times.received]]" format="HH:mm:ss"></date-display>
     <iron-icon icon="communication:call-end" style="color:red"></iron-icon>
-    <date-display value="[[times.cleared]]" format="HH:mm"></date-display>
+    <date-display value="[[times.cleared]]" format="HH:mm:ss"></date-display>
     <iron-icon icon="device:access-time" style="color:gray"></iron-icon>
-    
+    [[times.duration]]
     <template is="dom-if" if="[[recording]]">
       <div style="position:absolute;right:32px;"> 
         <iron-icon icon="av:play-arrow" style="color:green"></iron-icon>
