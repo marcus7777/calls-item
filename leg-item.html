@@ -38,19 +38,21 @@
     </style>
     <paper-icon-item elevation="1">
       <number item-icon class$="[[selected]]">[[number]]</number> 
-      <paper-item-body class="flex">
-        <span> [[from]] <strong>&rArr;</strong> [[to]] </span> 
+      <paper-item-body>
         <span>
-          <iron-icon icon="communication:call" style="color:green"></iron-icon>
-          <date-display value="[[times.received]]" format="HH:mm:ss"></date-display>
-        </span>
-        <span>
-          <iron-icon icon="communication:call-end" style="color:red"></iron-icon>
-          <date-display value="[[times.cleared]]" format="HH:mm:ss"></date-display>
-        </span>
-        <span>
-          <iron-icon icon="device:access-time" style="color:gray"></iron-icon>
-          [[times.duration]]
+          <span> [[from]] <strong>&rArr;</strong> [[to]] </span> 
+          <span>
+            <iron-icon icon="communication:call" style="color:green"></iron-icon>
+            <date-display value="[[times.received]]" format="HH:mm:ss"></date-display>
+          </span>
+          <span>
+            <iron-icon icon="communication:call-end" style="color:red"></iron-icon>
+            <date-display value="[[times.cleared]]" format="HH:mm:ss"></date-display>
+          </span>
+          <span>
+            <iron-icon icon="device:access-time" style="color:gray"></iron-icon>
+            [[times.duration]]
+          </span>
         </span>
       </paper-item-body>
       <template is="dom-if" if="[[recording]]">
