@@ -1,3 +1,4 @@
+<link rel="import" href="../iron-flex-layout/iron-flex-layout-classes.html">
 <link rel="import" href="../paper-item/paper-item-body.html">
 <link rel="import" href="../date-display/date-display.html">
 <link rel="import" href="../paper-item/paper-item.html">
@@ -34,16 +35,17 @@
         font-size: bigger;
       }
     </style>
-    
+    <style is="custom-style" include="iron-flex iron-flex-alignment"></style>
     <number class$="[[selected]]">[[number]]</number> 
     <span> [[from]] <strong>&rArr;</strong> [[to]] </span>
-    
-    <iron-icon icon="communication:call" style="color:green"></iron-icon>
-    <date-display value="[[times.received]]" format="HH:mm:ss"></date-display>
-    <iron-icon icon="communication:call-end" style="color:red"></iron-icon>
-    <date-display value="[[times.cleared]]" format="HH:mm:ss"></date-display>
-    <iron-icon icon="device:access-time" style="color:gray"></iron-icon>
-    [[times.duration]]
+    <div class="flex">
+      <iron-icon icon="communication:call" style="color:green"></iron-icon>
+      <date-display value="[[times.received]]" format="HH:mm:ss"></date-display>
+      <iron-icon icon="communication:call-end" style="color:red"></iron-icon>
+      <date-display value="[[times.cleared]]" format="HH:mm:ss"></date-display>
+      <iron-icon icon="device:access-time" style="color:gray"></iron-icon>
+      [[times.duration]]
+    </div>
     <template is="dom-if" if="[[recording]]">
       <div style="position:absolute;right:32px;"> 
         <iron-icon icon="av:play-arrow" style="color:green"></iron-icon>
