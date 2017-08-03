@@ -34,11 +34,13 @@
         color: #99c75f;
         font-size: bigger;
       }
+      
     </style>
     <style is="custom-style" include="iron-flex iron-flex-alignment"></style>
+    
     <number class$="[[selected]]">[[number]]</number> 
-    <span> [[from]] <strong>&rArr;</strong> [[to]] </span>
-    <div class="layout horizontal center-center">
+    <div class="layout" style="display:inline-block">  
+      <span> [[from]] <strong>&rArr;</strong> [[to]] </span> 
       <iron-icon icon="communication:call" style="color:green"></iron-icon>
       <date-display value="[[times.received]]" format="HH:mm:ss"></date-display>
       <iron-icon icon="communication:call-end" style="color:red"></iron-icon>
