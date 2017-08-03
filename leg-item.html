@@ -36,29 +36,29 @@
       }
       
     </style>
-    <style is="custom-style" include="iron-flex iron-flex-alignment"></style>
-    
-    <number class$="[[selected]]">[[number]]</number> 
-    <div class="layout" style="display:inline-block">  
-      <span class="flex"> [[from]] <strong>&rArr;</strong> [[to]] </span> 
-      <span class="flex">
-        <iron-icon class="flex" icon="communication:call" style="color:green"></iron-icon>
-        <date-display value="[[times.received]]" format="HH:mm:ss"></date-display>
-      </span>
-      <span class="flex">
-        <iron-icon icon="communication:call-end" style="color:red"></iron-icon>
-        <date-display value="[[times.cleared]]" format="HH:mm:ss"></date-display>
-      </span>
-      <span class="flex">
-        <iron-icon icon="device:access-time" style="color:gray"></iron-icon>
-        [[times.duration]]
-      </span>
-    </div>
-    <template is="dom-if" if="[[recording]]">
-      <div style="position:absolute;right:32px;"> 
-        <iron-icon icon="av:play-arrow" style="color:green"></iron-icon>
-      </div>
-    </template>
+    <paper-icon-item elevation="1">
+      <number item-icon class$="[[selected]]">[[number]]</number> 
+      <paper-item-body>
+        <span class="flex"> [[from]] <strong>&rArr;</strong> [[to]] </span> 
+        <span class="flex">
+          <iron-icon class="flex" icon="communication:call" style="color:green"></iron-icon>
+          <date-display value="[[times.received]]" format="HH:mm:ss"></date-display>
+        </span>
+        <span class="flex">
+          <iron-icon icon="communication:call-end" style="color:red"></iron-icon>
+          <date-display value="[[times.cleared]]" format="HH:mm:ss"></date-display>
+        </span>
+        <span class="flex">
+          <iron-icon icon="device:access-time" style="color:gray"></iron-icon>
+          [[times.duration]]
+        </span>
+      </paper-item-body>
+      <template is="dom-if" if="[[recording]]">
+        <div style="position:absolute;right:32px;"> 
+          <iron-icon icon="av:play-arrow" style="color:green"></iron-icon>
+        </div>
+      </template>
+    </paper-icon-item>
   </template>
 </dom-module>
 <script>
