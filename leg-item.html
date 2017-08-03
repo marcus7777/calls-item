@@ -40,13 +40,19 @@
     
     <number class$="[[selected]]">[[number]]</number> 
     <div class="layout" style="display:inline-block">  
-      <span> [[from]] <strong>&rArr;</strong> [[to]] </span> 
-      <iron-icon icon="communication:call" style="color:green"></iron-icon>
-      <date-display value="[[times.received]]" format="HH:mm:ss"></date-display>
-      <iron-icon icon="communication:call-end" style="color:red"></iron-icon>
-      <date-display value="[[times.cleared]]" format="HH:mm:ss"></date-display>
-      <iron-icon icon="device:access-time" style="color:gray"></iron-icon>
-      [[times.duration]]
+      <span class="flex"> [[from]] <strong>&rArr;</strong> [[to]] </span> 
+      <span class="flex">
+        <iron-icon class="flex" icon="communication:call" style="color:green"></iron-icon>
+        <date-display value="[[times.received]]" format="HH:mm:ss"></date-display>
+      </span>
+      <span class="flex">
+        <iron-icon icon="communication:call-end" style="color:red"></iron-icon>
+        <date-display value="[[times.cleared]]" format="HH:mm:ss"></date-display>
+      </span>
+      <span class="flex">
+        <iron-icon icon="device:access-time" style="color:gray"></iron-icon>
+        [[times.duration]]
+      </span>
     </div>
     <template is="dom-if" if="[[recording]]">
       <div style="position:absolute;right:32px;"> 
