@@ -1,6 +1,6 @@
 {
   "name": "calls-item",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": " ",
   "main": "calls-item.html",
   "keywords": [
@@ -14,7 +14,8 @@
     "paper-audio-player": "gorork/paper-audio-player#~1.1.1",
     "iron-collapse": "PolymerElements/iron-collapse",
     "paper-material": "PolymerElements/paper-material#~1.0.6",
-    "iron-selector": "PolymerElements/iron-selector#~1.0.8"
+    "iron-selector": "PolymerElements/iron-selector#~1.0.8",
+    "iron-flex-layout":"PolymerElements/iron-flex-layout#^1.3.7"
   },
   "devDependencies": {
     "iron-test-helpers": "*",
