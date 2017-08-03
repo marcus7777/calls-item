@@ -68,7 +68,7 @@
       <iron-collapse id="collapse">
         <iron-selector attr-for-selected="id" selected="{{legSelected}}">
           <template is="dom-repeat" items="[[legs]]">
-            <leg-item id="[[item.__key]]" index="[[index]]" leg-selected="{{legSelected}}" recording="[[item.recording]]" state="[[item.state]]" from="[[item.source.displayName]]" to="[[item.target.displayName]]" on-tap="setAudio" audio="[[item.audio]]" times="[[times]]"></leg-item>
+            <leg-item wide="[[wide]]" id="[[item.__key]]" index="[[index]]" leg-selected="{{legSelected}}" recording="[[item.recording]]" state="[[item.state]]" from="[[item.source.displayName]]" to="[[item.target.displayName]]" on-tap="setAudio" audio="[[item.audio]]" times="[[times]]"></leg-item>
           </template>
         </iron-selector>
         <template is="dom-if" if="[[elements.0]]">
@@ -114,6 +114,10 @@
       },
       callSelected: String,
       recording: Boolean,
+      wide: {
+        type: Boolean,
+        value: false,
+      },
     },
     _log: function(a,b,c) {
       console.log(a,b,c)
