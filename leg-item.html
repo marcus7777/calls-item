@@ -38,17 +38,17 @@
     </style>
     <paper-icon-item elevation="1">
       <number item-icon class$="[[selected]]">[[number]]</number> 
-      <paper-item-body>
-        <span class="flex"> [[from]] <strong>&rArr;</strong> [[to]] </span> 
-        <span class="flex">
-          <iron-icon class="flex" icon="communication:call" style="color:green"></iron-icon>
+      <paper-item-body class="flex">
+        <span> [[from]] <strong>&rArr;</strong> [[to]] </span> 
+        <span>
+          <iron-icon icon="communication:call" style="color:green"></iron-icon>
           <date-display value="[[times.received]]" format="HH:mm:ss"></date-display>
         </span>
-        <span class="flex">
+        <span>
           <iron-icon icon="communication:call-end" style="color:red"></iron-icon>
           <date-display value="[[times.cleared]]" format="HH:mm:ss"></date-display>
         </span>
-        <span class="flex">
+        <span>
           <iron-icon icon="device:access-time" style="color:gray"></iron-icon>
           [[times.duration]]
         </span>
