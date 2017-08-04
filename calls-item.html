@@ -57,10 +57,10 @@
               [[times.duration]]
             </div>
           </template>
-          <template is="dom-if" if="[[recording]]">
-            <iron-icon icon="av:play-arrow" style="color:green"></iron-icon>
-          </template>
         </paper-item-body>
+        <template is="dom-if" if="[[recording]]">
+          <iron-icon icon="av:play-arrow" style="color:green"></iron-icon>
+        </template>
       </paper-icon-item>
       <iron-collapse id="collapse">
         <iron-selector attr-for-selected="id" selected="{{legSelected}}">
