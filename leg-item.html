@@ -80,6 +80,12 @@
                 <date-display value="[[times.received]]" format="HH:mm:ss"></date-display>
               </span>
             </template>
+            <template is="dom-if" if="[[times.transferred]]">
+                <span>
+                  <iron-icon icon="notification:phone-forwarded" style="color:red"></iron-icon>
+                  <date-display value="[[times.transferred]]" format="HH:mm:ss"></date-display>
+                </span>
+              </template>
             <template is="dom-if" if="[[times.cleared]]">
               <span>
                 <iron-icon icon="communication:call-end" style="color:red"></iron-icon>
