@@ -70,7 +70,7 @@
         </iron-selector>
         <div class="footer">
           <template is="dom-repeat" items="[[elements]]">
-            <date-display value="[[item.times.received]]" format="HH:mm:ss"></date-display>
+            <date-display value="[[item.times.startTime]]" format="HH:mm:ss"></date-display>
           </template>
           <template is="dom-if" if="[[audio]]">
             <paper-audio-player src="[[audio.file]]" title="[[audio.title]]"></paper-audio-player>
