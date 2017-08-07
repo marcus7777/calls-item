@@ -45,35 +45,47 @@
           <span> [[from]] <strong>&rArr;</strong> [[to]] </span> 
           <template is="dom-if" if="[[wide]]">
             <span secondary>
-              <span>
-                <iron-icon icon="communication:call" style="color:green"></iron-icon>
-                <date-display value="[[times.received]]" format="HH:mm:ss"></date-display>
-              </span>
-              <span>
-                <iron-icon icon="communication:call-end" style="color:red"></iron-icon>
-                <date-display value="[[times.cleared]]" format="HH:mm:ss"></date-display>
-              </span>
-              <span>
-                <iron-icon icon="device:access-time" style="color:gray"></iron-icon>
-                [[times.duration]]
-              </span>
+              <template is="dom-if" if="[[times.received]]">
+                <span>
+                  <iron-icon icon="communication:call" style="color:green"></iron-icon>
+                  <date-display value="[[times.received]]" format="HH:mm:ss"></date-display>
+                </span>
+              </template>
+              <template is="dom-if" if="[[times.cleared]]">
+                <span>
+                  <iron-icon icon="communication:call-end" style="color:red"></iron-icon>
+                  <date-display value="[[times.cleared]]" format="HH:mm:ss"></date-display>
+                </span>
+              </template>
+              <template is="dom-if" if="[[times.duration]]">
+                <span>
+                  <iron-icon icon="device:access-time" style="color:gray"></iron-icon>
+                  [[times.duration]]
+                </span>
+              </template>
             </span>
           </template>
         </span>
         <template is="dom-if" if="[[!wide]]">
           <span secondary>
-            <span>
-              <iron-icon icon="communication:call" style="color:green"></iron-icon>
-              <date-display value="[[times.received]]" format="HH:mm:ss"></date-display>
-            </span>
-            <span>
-              <iron-icon icon="communication:call-end" style="color:red"></iron-icon>
-              <date-display value="[[times.cleared]]" format="HH:mm:ss"></date-display>
-            </span>
-            <span>
-              <iron-icon icon="device:access-time" style="color:gray"></iron-icon>
-              [[times.duration]]
-            </span>
+            <template is="dom-if" if="[[times.received]]">
+              <span>
+                <iron-icon icon="communication:call" style="color:green"></iron-icon>
+                <date-display value="[[times.received]]" format="HH:mm:ss"></date-display>
+              </span>
+            </template>
+            <template is="dom-if" if="[[times.cleared]]">
+              <span>
+                <iron-icon icon="communication:call-end" style="color:red"></iron-icon>
+                <date-display value="[[times.cleared]]" format="HH:mm:ss"></date-display>
+              </span>
+            </template>
+            <template is="dom-if" if="[[times.duration]]">
+              <span>
+                <iron-icon icon="device:access-time" style="color:gray"></iron-icon>
+                [[times.duration]]
+              </span>
+            </template>
           </span>
         </template>
       </paper-item-body>
