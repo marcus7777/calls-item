@@ -123,22 +123,23 @@
       }
       this.elements = []
       this.elementsRef = legsRef.doc(legSelected).collection("elements")
-      
-      this.unsubscribeElements = this.elementsRef.where('receivedUTC', '>', 0).onSnapshot(function(doc) {
-        if (doc) {
-          var elements = []
-          for (var index in doc.docs) {
-            var data = doc.docs[index].data()
-            data.__key = doc.docs[index].id
-            elements.push(data)
+      this.async(function(){
+        that.unsubscribeElements = that.elementsRef.where('receivedUTC', '>', 0).onSnapshot(function(doc) {
+          if (doc) {
+            var elements = []
+            for (var index in doc.docs) {
+              var data = doc.docs[index].data()
+              data.__key = doc.docs[index].id
+              elements.push(data)
+            }
+            that.elements = elements
+          } else {
+            console.log("No such collection!")
           }
-          that.elements = elements
-        } else {
-          console.log("No such collection!")
-        }
-      }, function(error) {
-        console.log(error)
-      })
+        }, function(error) {
+          console.log(error)
+        })
+      },1)
     },
     setOpened: function(id, callSelected){
       if (id == callSelected) {
