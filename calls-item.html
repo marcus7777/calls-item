@@ -209,8 +209,10 @@
         },"")
       }
     },
-    getLength: function(legStarted, legCleared) {
-      return moment(legCleared).diff(legStarted) / 1000
+    getLength: function(legStarted, legCleared) { 
+      if (legStarted && legCleared) {
+        return moment(legCleared).diff(legStarted) / 1000
+      }
     },
   })
 </script>
