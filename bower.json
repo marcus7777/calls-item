@@ -15,7 +15,8 @@
     "iron-collapse": "PolymerElements/iron-collapse",
     "paper-material": "PolymerElements/paper-material#~1.0.6",
     "iron-selector": "PolymerElements/iron-selector#~1.0.8",
-    "iron-flex-layout":"PolymerElements/iron-flex-layout#^1.3.7"
+    "iron-flex-layout":"PolymerElements/iron-flex-layout#^1.3.7",
+    "moment-js": "marcus7777/moment-js"
   },
   "devDependencies": {
     "iron-test-helpers": "*",
