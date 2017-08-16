@@ -198,7 +198,9 @@
       if (legs.length && legSelected) {
         return legs.reduce(function(got, value) {
           if (!got && value.__key == legSelected) {
-            if (value.times.connected) {
+            if (value.receivedUTC) {
+              return value.receivedUTC
+            } else if (value.times.connected) {
               return value.times.connected
             } else {
               return got
