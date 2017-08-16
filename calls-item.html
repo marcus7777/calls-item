@@ -169,17 +169,19 @@
     },
     getCleared: function(legs, legSelected){
       if (legs.length && legSelected) {
-        return legs.reduce(function(_, value) {
-          if (value.__key == legSelected) {
+        return legs.reduce(function(got, value) {
+          if (!got && value.__key == legSelected) {
             if (value.times.transferred) {
               return value.times.transferred
             } else if (value.times.cleared) {
               return value.times.cleared
             } else {
-              return 0
+              return got
             }
+          } else {
+            return got
           }
-        })
+        },"")
       }
     },
   })
