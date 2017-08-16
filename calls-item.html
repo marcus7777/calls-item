@@ -123,6 +123,9 @@
       legCleared:{
         computed: "getCleared(legs, legSelected)"
       },
+      legStarted:{
+        computed: "getStarted(legs, legSelected)"
+      },
     },
     _log: function(a,b,c) {
       console.log(a,b,c)
@@ -176,6 +179,21 @@
               return value.times.transferred
             } else if (value.times.cleared) {
               return value.times.cleared
+            } else {
+              return got
+            }
+          } else {
+            return got
+          }
+        },"")
+      }
+    },
+    getStarted: function(legs, legSelected){
+      if (legs.length && legSelected) {
+        return legs.reduce(function(got, value) {
+          if (!got && value.__key == legSelected) {
+            if (value.times.connected) {
+              return value.times.connected
             } else {
               return got
             }
