@@ -105,9 +105,6 @@
       _element:{
         computed: "getElements(legsRef, legSelected)"
       },
-      cleared:{
-        computed: "getCleared(legs, legSelected)"
-      },
       opened: {
         computed: "setOpened(id, callSelected)"
       },
@@ -123,21 +120,6 @@
     },
     _log: function(a,b,c) {
       console.log(a,b,c)
-    },
-    getCleared: function(legs,legSelected){
-      if (legs.length && legSelected) {
-        return legs.reduce(function(_, value) {
-          if (value.__key == legSelected) {
-            if (value.times.transferred) {
-              return value.times.transferred
-            } else if (value.times.cleared) {
-              return value.times.cleared
-            } else {
-              return 0
-            }
-          }
-        })
-      }
     },
     getElements: function(legsRef,legSelected){
       var that = this
