@@ -77,7 +77,7 @@
         <div class="footer">
           <template is="dom-repeat" items="[[elements]]">
             <date-display value="[[item.times.startTime]]" format="HH:mm:ss"></date-display>
-            Place: [[getLength(legStarted,item.times.startTime)]]
+            Place: [[getLength(legStarted,item.receivedUTC)]]
           </template>
           
           <template is="dom-if" if="[[legLength]]">
