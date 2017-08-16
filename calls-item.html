@@ -54,9 +54,9 @@
               <date-display value="[[times.received]]" format="HH:mm"></date-display>
               <iron-icon icon="communication:call-end" style="color:red"></iron-icon>
               <date-display value="[[times.cleared]]" format="HH:mm"></date-display>
-              <template is="dom-if" if="[[times.duration]]">
+              <template is="dom-if" if="[[times.totalDuration]]">
                 <iron-icon icon="device:access-time" style="color:gray"></iron-icon>
-                [[times.duration]]
+                [[times.totalDuration]]
               </template>  
             </div>
           </template>
