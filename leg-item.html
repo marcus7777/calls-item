@@ -127,6 +127,9 @@
         type:Boolean,
         value:false,
       },
+      cleared:{
+        computed: "getCleared(legs, legSelected)"
+      },
     },
     isSelected: function(id,legSelected){
       if (id && legSelected) {
@@ -137,6 +140,21 @@
     },
     addOne: function(i) {
       return 1+i
+    },
+    getCleared: function(legs,legSelected){
+      if (legs.length && legSelected) {
+        return legs.reduce(function(_, value) {
+          if (value.__key == legSelected) {
+            if (value.times.transferred) {
+              return value.times.transferred
+            } else if (value.times.cleared) {
+              return value.times.cleared
+            } else {
+              return 0
+            }
+          }
+        })
+      }
     },
   })
 </script>
