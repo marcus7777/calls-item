@@ -77,8 +77,9 @@
           <template is="dom-repeat" items="[[elements]]">
             <date-display value="[[item.times.startTime]]" format="HH:mm:ss"></date-display>
           </template>
-          <date-display value="[[legCleared]]" format="HH:mm:ss"></date-display>
-          
+          <template is="dom-if" if="[[legCleared]]">
+            <date-display value="[[legCleared]]" format="HH:mm:ss"></date-display>
+          </template>
           <template is="dom-if" if="[[audio]]">
             <paper-audio-player src="[[audio.file]]" title="[[audio.title]]"></paper-audio-player>
           </template>
