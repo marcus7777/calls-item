@@ -6,6 +6,7 @@
 <link rel="import" href="../date-display/date-display.html">
 <link rel="import" href="../paper-item/paper-item.html">
 <link rel="import" href="../iron-icons/iron-icons.html">
+<link rel="import" href="../moment-js/moment-js.html">
 <link rel="import" href="../polymer/polymer.html">
 <!--
   `<calls-item></calls-item>` demo
@@ -76,9 +77,11 @@
         <div class="footer">
           <template is="dom-repeat" items="[[elements]]">
             <date-display value="[[item.times.startTime]]" format="HH:mm:ss"></date-display>
+            Place: [[getLength(legStarted, item.times.startTime)]]
           </template>
-          <template is="dom-if" if="[[legCleared]]">
-            <date-display value="[[legCleared]]" format="HH:mm:ss"></date-display>
+          
+          <template is="dom-if" if="[[legLength]]">
+            [[legLength]]
           </template>
           <template is="dom-if" if="[[audio]]">
             <paper-audio-player src="[[audio.file]]" title="[[audio.title]]"></paper-audio-player>
@@ -125,6 +128,9 @@
       },
       legStarted:{
         computed: "getStarted(legs, legSelected)"
+      },
+      legLength:{
+        computed: "getLength(legStarted, legCleared)"
       },
     },
     _log: function(a,b,c) {
@@ -202,6 +208,9 @@
           }
         },"")
       }
+    },
+    getLength: function(legStarted, legCleared) {
+      return moment(legStarted).diff(legCleared).format("s")
     },
   })
 </script>
