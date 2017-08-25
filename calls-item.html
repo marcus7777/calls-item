@@ -76,7 +76,7 @@
         </iron-selector>
         <div class="footer" style="display: flex">
           <template is="dom-repeat" items="[[elements]]">
-            <div style$="flex: [[item.times.durations.raw]] 1px;background:blue;height:30px">
+            <div style$="flex: [[item.times.durations.raw]] 1px;background:blue;height:30px;border: darkred dotted 1px;">
               <date-display value="[[item.times.startTime]]" format="HH:mm:ss"></date-display>
             </div> 
           </template>
