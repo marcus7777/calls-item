@@ -78,10 +78,10 @@
           <template is="dom-repeat" items="[[elements]]">
             <div style$="flex: [[item.times.durations.raw]] 1px;background:#74bbbb;height:30px;margin:0 1px;">
               <date-display value="[[item.times.startTime]]" format="HH:mm:ss"></date-display>
+              <template is="dom-if" if="[[item.audio]]">
+                <paper-audio-player src="[[item.audio.file]]" title="[[item.audio.title]]"></paper-audio-player>
+              </template>
             </div>
-          </template>
-          <template is="dom-if" if="[[audio]]">
-            <paper-audio-player src="[[audio.file]]" title="[[audio.title]]"></paper-audio-player>
           </template>
         </div>
       </iron-collapse>
