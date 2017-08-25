@@ -80,10 +80,6 @@
               <date-display value="[[item.times.startTime]]" format="HH:mm:ss"></date-display>
             </div> 
           </template>
-          
-          <template is="dom-if" if="[[legLength]]">
-            length: [[legLength]]
-          </template>
           <template is="dom-if" if="[[audio]]">
             <paper-audio-player src="[[audio.file]]" title="[[audio.title]]"></paper-audio-player>
           </template>
@@ -123,15 +119,6 @@
       wide: {
         type: Boolean,
         value: false,
-      },
-      legCleared:{
-        computed: "getCleared(legs, legSelected)"
-      },
-      legStarted:{
-        computed: "getStarted(legs, legSelected)"
-      },
-      legLength:{
-        computed: "getLength(legs, legSelected)"
       },
     },
     _log: function(a,b,c) {
@@ -177,57 +164,6 @@
     },
     setAudio: function(e,d){
       this.audio = e.target.audio
-    },
-    getCleared: function(legs, legSelected){
-      if (legs.length && legSelected) {
-        return legs.reduce(function(got, value) {
-          if (!got && value.__key == legSelected) {
-            if (value.times.transferred) {
-              return value.times.transferred
-            } else if (value.times.cleared) {
-              return value.times.cleared
-            } else {
-              return got
-            }
-          } else {
-            return got
-          }
-        },"")
-      }
-    },
-    getStarted: function(legs, legSelected){
-      if (legs.length && legSelected) {
-        return legs.reduce(function(got, value) {
-          if (!got && value.__key == legSelected) {
-            if (value.receivedUTC) {
-              return value.receivedUTC
-            } else if (value.times.connected) {
-              return value.times.connected
-            } else {
-              return got
-            }
-          } else {
-            return got
-          }
-        },"")
-      }
-    },
-    getLength: function(legs, legSelected){
-      if (legs.length && legSelected) {
-        return legs.reduce(function(got, value) {
-          if (!got && value.__key == legSelected) {
-            if (value.totalDuration) {
-              return value.totalDuration
-            } else if (value.times.totalDuration) {
-              return value.times.totalDuration
-            } else {
-              return got
-            }
-          } else {
-            return got
-          }
-        },"")
-      }
     },
   })
 </script>
