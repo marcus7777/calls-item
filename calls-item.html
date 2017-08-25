@@ -77,7 +77,6 @@
         <div class="footer">
           <template is="dom-repeat" items="[[elements]]">
             <date-display value="[[item.times.startTime]]" format="HH:mm:ss"></date-display>
-            Place: [[getLength(legStarted,item.receivedUTC)]]
             Len:   [[item.times.durations.raw]]
           </template>
           
@@ -131,7 +130,7 @@
         computed: "getStarted(legs, legSelected)"
       },
       legLength:{
-        computed: "getLength(legStarted, legCleared)"
+        computed: "getLength(legs, legSelected)"
       },
     },
     _log: function(a,b,c) {
@@ -212,9 +211,21 @@
         },"")
       }
     },
-    getLength: function(legStarted, legCleared) { 
-      if (legStarted && legCleared) {
-        return moment(legCleared).diff(legStarted) / 1000
+    getLength: function(legs, legSelected){
+      if (legs.length && legSelected) {
+        return legs.reduce(function(got, value) {
+          if (!got && value.__key == legSelected) {
+            if (value.totalDuration) {
+              return value.totalDuration
+            } else if (value.times.totalDuration) {
+              return value.times.totalDuration
+            } else {
+              return got
+            }
+          } else {
+            return got
+          }
+        },"")
       }
     },
   })
