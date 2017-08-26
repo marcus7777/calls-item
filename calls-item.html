@@ -99,10 +99,10 @@
                   <paper-audio-player src="[[item.audio.file]]" title="[[item.audio.title]]" color="rgba(0,0,0,0)"></paper-audio-player>
                 </template>
               </div>
-              <div style="text-align:center">10s[[item.times.durations.display]]</div>
+              <div style="text-align:center">[[item.times.durations.display]]</div>
             </div>
           </template>
-          <div style$="flex: 0 1px; height:70px; margin: 15px 0 0 0; width:0px">
+          <div style$="flex: 1; height:70px; width:0px">
             <date-display value="[[legCleared]]" format="HH:mm:ss" style="margin:-25px -2em;"></date-display>
           </div>
         </div>
