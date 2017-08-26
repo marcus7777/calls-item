@@ -94,7 +94,7 @@
           <template is="dom-repeat" items="[[elements]]">
             <div style$="flex: [[item.times.durations.raw]] 1px;height:70px;margin: 30px 1px 0 0;">
               <date-display value="[[item.times.startTime]]" format="HH:mm:ss" style="margin:-20px -2em;"></date-display>
-              <div class$="[[item.state]]" style="">
+              <div class$="[[item.state]]" style="height:40px;">
                 <template is="dom-if" if="[[item.audio]]">
                   <paper-audio-player src="[[item.audio.file]]" title="[[item.audio.title]]" color="rgba(0,0,0,0)"></paper-audio-player>
                 </template>
