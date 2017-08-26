@@ -105,7 +105,7 @@
               <div style="text-align:center">[[item.times.durations.display]]</div>
             </div>
           </template>
-          <date-display value="[[legCleared]]" format="HH:mm:ss" style="margin: -2em; position: absolute;right:1.5em"></date-display>
+          <date-display value="[[legCleared]]" format="HH:mm:ss" style="position: absolute;right: 1em;margin-top: -7px"></date-display>
         </div>
       </iron-collapse>
     </paper-material>
@@ -118,9 +118,6 @@
       items: {
         type:Array,
         value:[],
-      },
-      elevation: {
-        value:"1"
       },
       legs: {
         type: Array,
@@ -152,7 +149,7 @@
     },
     getElevation: function(opened) {
       if (opened) {
-        return 5
+        return 4
       } else {
         return 1
       }
