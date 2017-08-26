@@ -32,15 +32,22 @@
         font-size: bigger;
       }
       .ringing {
-        background:yellow;
+        background-image: repeating-linear-gradient(
+          45deg,
+          yellow 5px,
+          yellow 10px,
+          #FFC200 10px,
+          #FFC200 20px
+        )
       } 
       .queueing {
         background-image: repeating-linear-gradient(
           45deg,
-          yellow,yellow 7px,
-          #FFC200  7px, #FFC200 14px
-        );
-        background-size: 50px 50px;
+          red 5px,
+          red 10px,
+          #FFC200 10px,
+          #FFC200 20px
+        )
       }
       .connected {
         background: green;
@@ -97,7 +104,7 @@
         </iron-selector>
         <div class="footer" style="display: flex">
           <template is="dom-repeat" items="[[elements]]">
-            <div style$="flex: [[item.times.durations.raw]] 1px;height:70px;margin: 15px 1px 0 0;">
+            <div style$="flex: [[item.times.durations.raw]] 1px;height:70px;margin: 15px 1px 0 0" title$="[[item.times.startTime]] ⇒ [[item.times.endTime]]">
               <date-display value="[[item.times.startTime]]" format="HH:mm:ss" style="margin: -2em; position: absolute;"></date-display>
               <div class$="[[item.state]]" style="height:50px;">
                 <template is="dom-if" if="[[item.audio]]">
