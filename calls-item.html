@@ -132,7 +132,7 @@
         computed: "getElements(legsRef, legSelected)"
       },
       opened: {
-        computed: "setOpened(id, callSelected)"
+        computed: "getOpened(id, callSelected)"
       },
       times: {
         type: Object,
@@ -182,11 +182,13 @@
         })
       },1)
     },
-    setOpened: function(id, callSelected){
+    getOpened: function(id, callSelected){
       if (id == callSelected) {
         this.open()
+        return true
       } else {
         this.close()
+        return false
       }
     },
     close: function(){
