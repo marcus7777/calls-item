@@ -96,7 +96,7 @@
         <div class="footer" style="display: flex;padding:30px">
           <template is="dom-repeat" items="[[elements]]">
             <div style$="flex: [[item.times.durations.raw]] 1px;height:70px;margin: 15px 1px 0 0;">
-              <date-display value="[[item.times.startTime]]" format="HH:mm:ss"></date-display>
+              <date-display value="[[item.times.startTime]]" format="HH:mm:ss" style="margin: -2em; position: absolute;"></date-display>
               <div class$="[[item.state]]" style="height:50px;">
                 <template is="dom-if" if="[[item.audio]]">
                   <paper-audio-player src="[[item.audio.file]]" title="[[item.audio.title]]" color="rgba(0,0,0,0)"></paper-audio-player>
@@ -105,9 +105,7 @@
               <div style="text-align:center">[[item.times.durations.display]]</div>
             </div>
           </template>
-          <div style$="flex: 1; height:70px; width:0px">
-            <date-display value="[[legCleared]]" format="HH:mm:ss" style="margin:-25px -2em;"></date-display>
-          </div>
+          <date-display value="[[legCleared]]" format="HH:mm:ss" style="margin: -2em; position: absolute;right:1.5em"></date-display>
         </div>
       </iron-collapse>
     </paper-material>
