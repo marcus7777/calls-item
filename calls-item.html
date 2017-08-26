@@ -93,7 +93,7 @@
         <div class="footer" style="display: flex;padding:30px">
           <template is="dom-repeat" items="[[elements]]">
             <div style$="flex: [[item.times.durations.raw]] 1px;height:70px;margin: 30px 1px 0 0;">
-              <date-display value="[[item.times.startTime]]" format="HH:mm:ss" style="margin:-20px -2em;"></date-display>
+              <date-display value="[[item.times.startTime]]" format="HH:mm:ss" style="margin:-25px -2em;"></date-display>
               <div class$="[[item.state]]" style="height:50px;">
                 <template is="dom-if" if="[[item.audio]]">
                   <paper-audio-player src="[[item.audio.file]]" title="[[item.audio.title]]" color="rgba(0,0,0,0)"></paper-audio-player>
@@ -101,6 +101,7 @@
               </div>
             </div>
           </template>
+          <date-display value="[[legCleared]]" format="HH:mm:ss" style="margin:-25px 2em;"></date-display>
         </div>
       </iron-collapse>
     </paper-material>
@@ -138,6 +139,9 @@
         type: Boolean,
         value: false,
       },
+      legCleared:{
+        computed: "getCleared(legs, legSelected)"
+      }
     },
     _log: function(a,b,c) {
       console.log(a,b,c)
@@ -182,6 +186,23 @@
     },
     setAudio: function(e,d){
       this.audio = e.target.audio
+    },
+    getCleared: function(legs, legSelected){
+      if (legs.length && legSelected) {
+        return legs.reduce(function(got, value) {
+          if (!got && value.__key == legSelected) {
+            if (value.times.transferred) {
+              return value.times.transferred
+            } else if (value.times.cleared) {
+              return value.times.cleared
+            } else {
+              return got
+            }
+          } else {
+            return got
+          }
+        },"")
+      }
     },
   })
 </script>
