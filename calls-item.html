@@ -48,7 +48,8 @@
         background: lightgrey;
       }
       .footer {
-        font-size: 13px;
+        font-size: 12px;
+        padding: 20px 30px 10px;
       }
     </style>
     <paper-material elevation="[[elevation]]">
@@ -93,7 +94,7 @@
             </leg-item>
           </template>
         </iron-selector>
-        <div class="footer" style="display: flex;padding:30px">
+        <div class="footer" style="display: flex">
           <template is="dom-repeat" items="[[elements]]">
             <div style$="flex: [[item.times.durations.raw]] 1px;height:70px;margin: 15px 1px 0 0;">
               <date-display value="[[item.times.startTime]]" format="HH:mm:ss" style="margin: -2em; position: absolute;"></date-display>
