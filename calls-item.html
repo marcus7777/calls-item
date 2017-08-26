@@ -35,19 +35,17 @@
         background:yellow;
       } 
       .queueing {
-          background: repeating-linear-gradient(
-            45deg,
-            yellow,
-            yellow 5px,
-            amber 5px,
-            amber 10px
-          );
+        background: repeating-linear-gradient(
+          45deg,
+          yellow,yellow 7px,
+          amber  7px, amber 14px
+        );
       }
       .connected {
-        background:green;
+        background: green;
       }
       .onHold {
-        background:lightgrey;
+        background: lightgrey;
       }
     </style>
     <paper-material elevation="[[elevation]]">
@@ -94,11 +92,13 @@
         </iron-selector>
         <div class="footer" style="display: flex;padding:30px">
           <template is="dom-repeat" items="[[elements]]">
-            <div class$="[[item.state]]" style$="flex: [[item.times.durations.raw]] 1px;height:70px;margin: 30px 1px 0 0;">
+            <div style$="flex: [[item.times.durations.raw]] 1px;height:70px;margin: 30px 1px 0 0;">
               <date-display value="[[item.times.startTime]]" format="HH:mm:ss" style="margin:-20px -2em;"></date-display>
-              <template is="dom-if" if="[[item.audio]]">
-                <paper-audio-player src="[[item.audio.file]]" title="[[item.audio.title]]"></paper-audio-player>
-              </template>
+              <div class$="[[item.state]]" style="">
+                <template is="dom-if" if="[[item.audio]]">
+                  <paper-audio-player src="[[item.audio.file]]" title="[[item.audio.title]]"></paper-audio-player>
+                </template>
+              </div>
             </div>
           </template>
         </div>
