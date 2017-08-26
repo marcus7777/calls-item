@@ -43,8 +43,8 @@
       .queueing {
         background-image: repeating-linear-gradient(
           45deg,
-          red 5px,
-          red 10px,
+          #ff25555 5px,
+          #ff25555 10px,
           #FFC200 10px,
           #FFC200 20px
         )
@@ -53,7 +53,7 @@
         background: green;
       }
       .onHold {
-        background: #ff5555;
+        background: #ff25555;
       }
       .footer {
         font-size: 12px;
@@ -105,7 +105,6 @@
         <div class="footer" style="display: flex">
           <template is="dom-repeat" items="[[elements]]">
             <div style$="flex: [[item.times.durations.raw]] 1px;height:70px;margin: 15px 1px 0 0" title$="[[item.tip]]">
-              <date-display value="[[item.times.startTime]]" format="HH:mm:ss" style="margin: -2em; position: absolute;"></date-display>
               <div class$="[[item.state]]" style="height:50px;">
                 <template is="dom-if" if="[[item.audio]]">
                   <paper-audio-player src="[[item.audio.file]]" title="[[item.audio.title]]" color="green"></paper-audio-player>
