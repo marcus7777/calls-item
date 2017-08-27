@@ -37,7 +37,7 @@
           yellow 5px,
           yellow 10px,
           #FFC200 10px,
-          #FFC200 20px
+          #FFC200 10px
         )
       } 
       .queueing {
@@ -46,7 +46,7 @@
           #ff2555 5px,
           #ff2555 10px,
           #FFC200 10px,
-          #FFC200 20px
+          #FFC200 10px
         )
       }
       .connected {
@@ -104,10 +104,11 @@
         </iron-selector>
         <div class="footer" style="display: flex">
           <template is="dom-repeat" items="[[elements]]">
+            <iron-icon icon="[[getIcon(item.state)]]" style$="color:[[getColor(item.state)]];text-align:center"></iron-icon>
             <div style$="flex: [[item.times.durations.raw]] 1px;height:70px;margin: 15px 1px 0 0" title$="[[item.tip]]">
               <div class$="[[item.state]]" style="height:50px;">
                 <template is="dom-if" if="[[item.audio]]">
-                  <paper-audio-player src="[[item.audio.file]]" title="[[item.audio.title]]" color="green"></paper-audio-player>
+                  <paper-audio-player src="[[item.audio.file]]" title="[[item.audio.title]]" color="[[getColor(item.state)]]"></paper-audio-player>
                 </template>
               </div>
               <div style="text-align:center">[[item.times.durations.display]]</div>
@@ -121,7 +122,35 @@
 <script>
   Polymer({
     is: "calls-item",
+    getIcon: function(state) {
+      if (state && this.icons.hasOwnProperty(state)) {
+        return this.icons[state]
+      }
+    },
+    getColor: function(state) {
+      if (state && this.colors.hasOwnProperty(state)) {
+        return this.colors[state]
+      }
+    },
     properties: {
+      icons: {
+        value: {
+          ringing: "communication:ring-volume",
+          queueing: "av:queue-music",
+          connected: "communication:call",
+          onHold: "communication:ring-volume",
+          cleared: "communication:call-end",
+        }
+      },
+      colors: {
+        value: {
+          ringing: "#FFC200",
+          queueing: "#ff2555",
+          connected: "green",
+          onHold: "#ff2555",
+          cleared: "red",
+        }
+      },
       items: {
         type:Array,
         value:[],
