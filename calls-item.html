@@ -104,8 +104,8 @@
         </iron-selector>
         <div class="footer" style="display: flex">
           <template is="dom-repeat" items="[[elements]]">
-            <iron-icon icon="[[getIcon(item.state)]]" style$="color:[[getColor(item.state)]];text-align:center"></iron-icon>
             <div style$="flex: [[item.times.durations.raw]] 1px;height:70px;margin: 15px 1px 0 0" title$="[[item.tip]]">
+              <iron-icon icon="[[getIcon(item.state)]]" style$="display:block;color:[[getColor(item.state)]];text-align:center"></iron-icon>
               <div class$="[[item.state]]" style="height:50px;">
                 <template is="dom-if" if="[[item.audio]]">
                   <paper-audio-player src="[[item.audio.file]]" title="[[item.audio.title]]" color="[[getColor(item.state)]]"></paper-audio-player>
