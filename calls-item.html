@@ -104,7 +104,7 @@
         </iron-selector>
         <div class="footer" style="display: flex">
           <template is="dom-repeat" items="[[elements]]">
-            <div style$="flex: [[item.times.durations.raw]] 1px;height:70px;margin: 15px 1px 0 0" title$="[[item.tip]]">
+            <div style$="flex: [[item.times.durations.raw]] 1px;margin: 15px 1px 0 0" title$="[[item.tip]]">
               <div style="text-align:center">
                 <iron-icon icon="[[getIcon(item.state)]]" style$="color:[[getColor(item.state)]]"></iron-icon>
               </div>
