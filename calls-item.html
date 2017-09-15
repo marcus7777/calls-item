@@ -99,9 +99,6 @@
         </template>
       </paper-icon-item>
       <iron-collapse id="collapse">
-        <template is="dom-if" if="[[!legs.length]]">
-          <paper-progress indeterminate ></paper-progress>
-        </template>
         <iron-selector attr-for-selected="id" selected="{{legSelected}}">
           <template is="dom-repeat" items="[[legs]]">
             <leg-item wide="[[wide]]" id="[[item.__key]]" title="[[item.__key]]" index="[[index]]" leg-selected="{{legSelected}}"
@@ -125,6 +122,9 @@
             </div>
           </template>
         </div>
+        <template is="dom-if" if="[[!legs.length]]">
+          <paper-progress indeterminate ></paper-progress>
+        </template>
       </iron-collapse>
     </paper-material>
   </template>
