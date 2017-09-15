@@ -1,5 +1,6 @@
 <link rel="import" href="../paper-audio-player/paper-audio-player.html">
 <link rel="import" href="../paper-material/paper-material.html">
+<link rel="import" href="../paper-progress/paper-progress.html">
 <link rel="import" href="../iron-collapse/iron-collapse.html">
 <link rel="import" href="../paper-item/paper-icon-item.html">
 <link rel="import" href="../paper-item/paper-item-body.html">
@@ -25,7 +26,7 @@
         background:#fff;
       }
       div.footer {
-        min-height:50px
+        min-height:109px
       }
       .arrow {
         color: #99c75f;
@@ -58,6 +59,10 @@
       .footer {
         font-size: 12px;
         padding: 20px 30px 10px;
+      }
+      paper-progress {
+        width:100%;
+        --paper-progress-active-color:#99c75f;
       }
     </style>
     <paper-material elevation="[[elevation]]">
@@ -94,6 +99,9 @@
         </template>
       </paper-icon-item>
       <iron-collapse id="collapse">
+        <template is="dom-if" if="[[!legs.length]]">
+          <paper-progress indeterminate ></paper-progress>
+        </template>
         <iron-selector attr-for-selected="id" selected="{{legSelected}}">
           <template is="dom-repeat" items="[[legs]]">
             <leg-item wide="[[wide]]" id="[[item.__key]]" title="[[item.__key]]" index="[[index]]" leg-selected="{{legSelected}}"
