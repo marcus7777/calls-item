@@ -21,6 +21,14 @@
           #90eed6 32px, green 32px, green 35px, #90eed6 35px
         );
       }
+      :host:first-child {
+        background-position-y: 40px;
+        background-repeat: no-repeat;
+      }
+      :host:last-child {
+        background-position-y: -40px;
+        background-repeat: no-repeat;
+      }
       number {
         display: inline-block;
         border: 1px solid green;
@@ -35,14 +43,6 @@
       number.true {
         background: green;
         color: #fff;
-      }
-      number:first-child {
-        background-position-y: 40px;
-        background-repeat: no-repeat;
-      }
-      number:last-child {
-        background-position-y: -40px;
-        background-repeat: no-repeat;
       }
       strong {
         color: #99c75f;
