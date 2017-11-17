@@ -8,6 +8,7 @@
 <link rel="import" href="../paper-item/paper-item.html">
 <link rel="import" href="../iron-icons/iron-icons.html">
 <link rel="import" href="../moment-js/moment-js.html">
+<link rel="import" href="../app-route/app-route.html">
 <link rel="import" href="../polymer/polymer.html">
 <!--
   `<calls-item></calls-item>` demo
@@ -69,6 +70,7 @@
         --paper-progress-active-color:#99c75f;
       }
     </style>
+    <app-route route="{{route}}" pattern="/:leg" data="{{routeData}}" tail="{{tail}}"></app-route>
     <paper-material elevation="[[elevation]]">
       <paper-icon-item>
         <div item-icon>
@@ -103,12 +105,12 @@
         </template>
       </paper-icon-item>
       <iron-collapse id="collapse">
-        <iron-selector attr-for-selected="id" selected="{{legSelected}}">
+        <iron-selector attr-for-selected="id" selected="{{routeData.leg}}">
           <template is="dom-repeat" items="[[legs]]">
             <leg-item wide="[[wide]]" id="[[item.__key]]" title="[[item.__key]]" index="[[index]]" leg-selected="{{legSelected}}"
               recording="[[item.recording]]" state="[[item.state]]" from="[[item.source.displayName]]" to="[[item.target.displayName]]" 
               on-tap="setAudio" audio="[[item.audio]]" times="[[item.times]]">
-              <template is="dom-if" if="{{test(item.__key, legSelected)}}">
+              <template is="dom-if" if="{{test(item.__key, routeData.leg)}}">
                 <div class="footer" style="display: flex">
                   <template is="dom-repeat" items="[[elements]]">
                     <div style$="flex: [[item.times.durations.raw]] 1px;margin: 15px 1px 0 0" title$="[[item.tip]]">
@@ -179,7 +181,7 @@
         type: Array,
       },
       _element:{
-        computed: "getElements(legsRef, legSelected)"
+        computed: "getElements(legsRef, routeData.leg)"
       },
       opened: {
         computed: "getOpened(id, callSelected)"
@@ -194,7 +196,7 @@
         value: false,
       },
       legCleared:{
-        computed: "getCleared(legs, legSelected)",
+        computed: "getCleared(legs, routeData.leg)",
       },
       elevation: {
         computed: "getElevation(opened)",
