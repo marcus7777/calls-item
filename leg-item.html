@@ -3,6 +3,7 @@
 <link rel="import" href="../date-display/date-display.html">
 <link rel="import" href="../paper-item/paper-item.html">
 <link rel="import" href="../iron-icons/iron-icons.html">
+<link rel="import" href="../app-route/app-route.html">
 <link rel="import" href="../polymer/polymer.html">
 <!--
   `<leg-item></leg-item>` demo
@@ -52,6 +53,7 @@
       
       }
     </style>
+    <app-route route="{{route}}" pattern="/:leg" data="{{routeData}}" tail="{{tail}}"></app-route>
     <paper-icon-item elevation="1" style="height:60px">
       <span item-icon>
         <number class$="[[selected]]">[[number]]</number>
@@ -138,7 +140,7 @@
         notify:true,
       },
       selected: {
-        computed:"isSelected(id,legSelected)"
+        computed:"isSelected(id,routeData.leg)"
       },
       wide: {
         type:Boolean,
