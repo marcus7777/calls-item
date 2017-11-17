@@ -107,7 +107,7 @@
       <iron-collapse id="collapse">
         <iron-selector attr-for-selected="id" selected="{{routeData.leg}}">
           <template is="dom-repeat" items="[[legs]]">
-            <leg-item wide="[[wide]]" id="[[item.__key]]" title="[[item.__key]]" index="[[index]]" leg-selected="{{routeData.leg}}"
+            <leg-item wide="[[wide]]" id="[[item.__key]]" title="[[item.__key]]" index="[[index]]" route="{{route}}"
               recording="[[item.recording]]" state="[[item.state]]" from="[[item.source.displayName]]" to="[[item.target.displayName]]" 
               on-tap="setAudio" audio="[[item.audio]]" times="[[item.times]]">
               <template is="dom-if" if="{{test(item.__key, routeData.leg)}}">
