@@ -134,7 +134,10 @@
         computed:"addOne(index)",
       },
       id:String,
-      legSelected:String,
+      legSelected:{
+        type:String,
+        notify:true,
+      }
       selected: {
         computed:"isSelected(id,legSelected)"
       },
