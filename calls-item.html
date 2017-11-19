@@ -203,11 +203,13 @@
       },
       route: {
         notify: true,
-        observer: "setRoute"
+      },
+      _setRoute: {
+        computed: "setRoute(route,routeData)"
       },
     },
-    setRoute: function(route){
-      console.log(route)
+    setRoute: function(route,routeData){
+      console.log(route,routeData)
     },
     test: function(a,b) {
       return a == b
