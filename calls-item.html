@@ -69,9 +69,18 @@
         width:100%;
         --paper-progress-active-color:#99c75f;
       }
+      .overlay {
+        position: fixed;
+        background:#fff;
+        z-index: 1000;
+        height: 100%;
+        width: 100%;
+        left: 0;
+        top: 0;
+      }
     </style>
     <app-route route="{{route}}" pattern="/legs/:leg" data="{{routeData}}" tail="{{tail}}"></app-route>
-    <paper-material elevation="[[elevation]]">
+    <paper-material elevation="[[elevation]]" class?="wide[[wide]]">
       <paper-icon-item>
         <div item-icon>
           <template is="dom-if" if="[[!photo]]">
