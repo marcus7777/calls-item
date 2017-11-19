@@ -148,6 +148,7 @@
     },
     isSelected: function(id,legSelected){
       if (id && legSelected) {
+        this.scrollIntoView()
         return id === legSelected
       } else {
         return false
