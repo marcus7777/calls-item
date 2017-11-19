@@ -210,7 +210,10 @@
       },
     },
     setRoute: function(route,routeData){
-      console.log(route,routeData)
+      console.log(routeData,routeData)
+      if (routeData.leg && route.path === "") {
+        this.set("routeData.path", "legs/" + routeData.leg)
+      }
     },
     test: function(a,b) {
       return a == b
