@@ -70,7 +70,7 @@
         --paper-progress-active-color:#99c75f;
       }
     </style>
-    <app-route route="{{route}}" pattern="/:leg" data="{{routeData}}" tail="{{tail}}"></app-route>
+    <app-route route="{{route}}" pattern="/legs/:leg" data="{{routeData}}" tail="{{tail}}"></app-route>
     <paper-material elevation="[[elevation]]">
       <paper-icon-item>
         <div item-icon>
@@ -202,8 +202,12 @@
         computed: "getElevation(opened)",
       },
       route: {
-        notify:true,
+        notify: true,
+        observer: 
       },
+    },
+    setRoute: function(route){
+      console.log(route)
     },
     test: function(a,b) {
       return a == b
