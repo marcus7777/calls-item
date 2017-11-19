@@ -80,7 +80,7 @@
       }
     </style>
     <app-route route="{{route}}" pattern="/legs/:leg" data="{{routeData}}" tail="{{tail}}"></app-route>
-    <paper-material elevation="[[elevation]]" class?="wide[[wide]]">
+    <paper-material elevation="[[elevation]]" class$="wide[[wide]]">
       <paper-icon-item>
         <div item-icon>
           <template is="dom-if" if="[[!photo]]">
