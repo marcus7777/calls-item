@@ -229,6 +229,7 @@
     },
     getElevation: function(opened) {
       if (opened) {
+        this.scrollIntoView()
         return 4
       } else {
         return 1
@@ -251,7 +252,6 @@
               elements.push(data)
             }
             that.elements = elements
-            that.scrollIntoView()
           } else {
             console.log("No such collection!")
           }
