@@ -229,7 +229,12 @@
     },
     getElevation: function(opened) {
       if (opened) {
-        this.scrollIntoView()
+        
+        var that = this
+        setTimeout(function(){
+          that.scrollIntoView()
+        }, 300)
+        
         return 4
       } else {
         return 1
